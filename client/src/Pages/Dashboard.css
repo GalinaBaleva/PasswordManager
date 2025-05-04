@@ -1,0 +1,20 @@
+table,
+th,
+td {
+    border: 1px solid;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: start;
+}
+
+td,
+th {
+    padding: 0.5em;
+}
+
+.newPage {
+    margin-top: 2em;
+}

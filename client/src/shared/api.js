@@ -8,7 +8,6 @@ const fetchData = async (method, path, body) => {
 
     if (body !== undefined) {
         options.body = JSON.stringify( body);
-        console.log(options)
     }
 
     try {
