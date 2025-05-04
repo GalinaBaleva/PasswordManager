@@ -30,8 +30,6 @@ const cleaner = (data) => {
     const { passwort, ...cleanData } = data;
     const decryptedPass = dectyptPass(passwort)
 
-    console.log(decryptedPass);
-
     const newPass = decryptedPass
         .split('')
         .map(c => '*')
@@ -93,7 +91,7 @@ app.get('/passwords/delete/:id', (req, res) => {
     res.status(200).send({message: 'Deleted!'});
 });
 
-app.post('/passwords/:id', (req, res) => {
+app.get('/passwords/:id', (req, res) => {
     const { id } = req.params;
 
     try {
