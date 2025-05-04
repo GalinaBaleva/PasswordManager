@@ -1,0 +1,17 @@
+.passField{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.passField button{
+    padding: 0;
+    background-color: white;    
+    color: blue;
+}
+
+.passField p {
+    padding: 0;
+    margin: 0;
+}
+
