@@ -42,10 +42,6 @@ const cleaner = (data) => {
     return cleanData;
 }
 
-app.get('/login', (req, res) => {
-    res.status(200).send('');
-});
-
 app.post('/login', (req, res) => {
     const { managerpass } = req.body;
     try {
@@ -53,7 +49,7 @@ app.post('/login', (req, res) => {
             throw new Error('Kennwort stimmt nicht überein!')
         }
 
-        res.status(200).send('Erfolgreich eingeloggt!');
+        res.status(200).send({message: 'Erfolgreich eingeloggt!'});
     } catch (err) {
         res.status(500).send({ error: err.message })
     }
@@ -80,7 +76,7 @@ app.post('/passwords', (req, res) => {
     try {
         dataWrite(arrJson);
 
-        res.status(200).send('Neues Passwort ist angelegt!');
+        res.status(200).send({message: 'Neues Passwort ist angelegt!'});
     } catch (err) {
         res.status(500).send({ error: err });
 
@@ -94,7 +90,7 @@ app.get('/passwords/delete/:id', (req, res) => {
     const filtered = data.filter(a => a.id !== id);
 
     dataWrite(filtered);
-    res.status(200).send('Deleted!');
+    res.status(200).send({message: 'Deleted!'});
 });
 
 app.post('/passwords/:id', (req, res) => {
@@ -109,9 +105,9 @@ app.post('/passwords/:id', (req, res) => {
         }
         const pass = dectyptPass(filtered[0].passwort);
 
-        res.status(200).send(pass);
+        res.status(200).send({message: pass});
 
     } catch (err) {
-        res.status(500).send({message: err.message});
+        res.status(500).send({error: err.message});
     }
 });
